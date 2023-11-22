@@ -1,67 +1,66 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, TouchableOpacity, Image, Text } from 'react-native';
-/*import SuperAwesomeImage from '../../assets/icons-orange/superAwesome.png';*/
-import RishiImage from '../../assets/rishi.png';
-import PrettyGoodImage from '../../assets/icons-orange/pretty-good.png';
+import SuperAwesomeImage from '../../assets/icons-orange/superAwesome.png';
+import PrettyGoodImage from '../../assets/icons-orange/prettyGood.png';
 import OkayImage from '../../assets/icons-orange/okay.png';
 import PrettyBadImage from '../../assets/icons-orange/prettyBad.png';
 import ReallyTerribleImage from '../../assets/icons-orange/reallyTerrible.png';
 
 
 const CheckIn = () => {
-	const [firstImageClicked, setFirstImageClicked] = useState(true);
-	const [secondImageClicked, setSecondImageClicked] = useState(true);
-	const [thirdImageClicked, setThirdImageClicked] = useState(true);
-	const [fourthImageClicked, setFourthImageClicked] = useState(true);
-	const [fifthImageClicked, setFifthImageClicked] = useState(true);
+	const [firstImageClicked, setFirstImageClicked] = useState(true)
+	const [secondImageClicked, setSecondImageClicked] = useState(true)
+	const [thirdImageClicked, setThirdImageClicked] = useState(true)
+	const [fourthImageClicked, setFourthImageClicked] = useState(true)
+	const [fifthImageClicked, setFifthImageClicked] = useState(true)
 	const [displayText, setDisplayText] = useState('')
 
 	const handlePress = (textToChange) => {
-		setIsPressed(!isPressed),
-		isPressed ? setDisplayText(textToChange) : setDisplayText('')
+		setDisplayText(textToChange)
     }
 	
 	return (
 		<View style={styles.container}>
 			<View style={styles.icons}>
 				
-				<TouchableOpacity onClick={() => {
-					setFirstImageClicked(!firstImageClicked),
-					firstImageClicked ? setDisplayText('super awesome') : setDisplayText('')
-				}}>
+				<TouchableOpacity
+					onPress={() => {
+						handlePress('super awesome')
+						setFirstImageClicked(!firstImageClicked)
+					}}>
 					
 					<Image
 						style={styles.icon}
-						source={RishiImage} />
+						source={SuperAwesomeImage} />
 				</TouchableOpacity>
 
 				<TouchableOpacity
-					onClick={() => {
+					onPress={() => {
 						setSecondImageClicked(!secondImageClicked),
 						secondImageClicked ? setDisplayText('pretty good') : setDisplayText('')
 				}}>
-					<Image style={styles.icon} source={{ PrettyGoodImage }} />
+					<Image style={styles.icon} source={ PrettyGoodImage } />
 				</TouchableOpacity>
 
 				<TouchableOpacity onClick={() => {
 					setThirdImageClicked(!thirdImageClicked),
 						thirdImageClicked ? setDisplayText('okay') : setDisplayText('')
 				}}>
-					<Image style={styles.icon} source={{ OkayImage }} />
+					<Image style={styles.icon} source={OkayImage} />
 				</TouchableOpacity>
 
-				<TouchableOpacity onClick={() => {
-					setFourthImageClicked(!FourthImageClicked),
+				<TouchableOpacity onPress={() => {
+					setFourthImageClicked(!fourthImageClicked),
 					fourthImageClicked ? setDisplayText('pretty bad') : setDisplayText('')
 				}}>
-					<Image style={styles.icon} source={{ PrettyBadImage }} />
+					<Image style={styles.icon} source={PrettyBadImage} />
 				</TouchableOpacity>
 
-				<TouchableOpacity onClick={() => {
-					setFifthImageClicked(!FifthImageClicked),
+				<TouchableOpacity onPress={() => {
+					setFifthImageClicked(!fifthImageClicked),
 					fifthImageClicked ? setDisplayText('really terrible') : setDisplayText('')
 				}}>
-					<Image style={styles.icon} source={{ ReallyTerribleImage }} />
+					<Image style={styles.icon} source={ReallyTerribleImage} />
 				</TouchableOpacity>
 
 			</View>
@@ -99,16 +98,14 @@ const styles = StyleSheet.create({
 	icon: {
 		height: 80,
 		width: 50,
-		borderColor: '#000',
-		borderWidth: 2,
-
+		marginTop: 8
 
 	},
 
 	line: {
 		borderColor: '#685D79',
 		borderWidth: 0.5,
-		marginTop: 20,
+		marginTop: 14,
 		width: 260,
 		backgroundColor: '#000'
 	},

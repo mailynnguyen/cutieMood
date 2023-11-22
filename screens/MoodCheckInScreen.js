@@ -1,17 +1,13 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableWithoutFeedback, Keyboard, Button } from 'react-native';
+import { View, Text, StyleSheet, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import Note from '../components/moodCheckIn/Notepad';
 import CheckIn from '../components/moodCheckIn/CheckIn';
 import StyledButton from '../components/moodCheckIn/StyledButton';
 
-const MoodCheckInScreen = ({ navigation }) => {
+const MoodCheckInScreen = ( { navigation } ) => {
     // for typing in notepad and then pressing outside to exit keyboard
     const handlePressOutside = () => {
         Keyboard.dismiss(); // dismiss the keyboard when tapping outside the text input
-    }
-
-    const test = () => {
-        console.log('test string')
     }
 
     return (
@@ -31,13 +27,11 @@ const MoodCheckInScreen = ({ navigation }) => {
                     <Note />
                 </View>
 
-                <View style={styles.button}>
-                    <StyledButton
-                        onPress={() => {
-                            navigation.navigate('CalendarScreen'),
-                            console.log('Button pressed.')
-                        }}
-                    />
+                <View style={styles.button}
+                    
+                >
+
+                    <StyledButton onPress={() => navigation.navigate('Calendar')} />
                 </View>
                 
             </View>

@@ -3,8 +3,8 @@ import MoodCheckInScreen from './screens/MoodCheckInScreen';
 import CalendarScreen from './screens/CalendarScreen';
 import ResourcesScreen from './screens/ResourcesScreen';
 import { useFonts } from 'expo-font';
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { View, Text } from 'react-native';
 
 const Stack = createNativeStackNavigator();
@@ -29,7 +29,6 @@ export default function App() {
                     headerShown: false,
                 }}
             >
-                
 
                 <Stack.Screen
                     name='MoodCheckIn'
@@ -45,6 +44,12 @@ export default function App() {
                     name='Resources'
                     component={ResourcesScreen}
                 />
+
+                
+
+                
+
+                
 
             </Stack.Navigator>
 
