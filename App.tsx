@@ -1,6 +1,7 @@
 import React from 'react';
 import MoodCheckInScreen from './screens/MoodCheckInScreen';
 import CalendarScreen from './screens/CalendarScreen';
+import ResourcesScreen from './screens/ResourcesScreen';
 import { useFonts } from 'expo-font';
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -18,31 +19,38 @@ export default function App() {
         return <View><Text>Loading...</Text></View>;
     }
 
-   
+
 
     return (
-        
-            <NavigationContainer>
-                <Stack.Navigator
-                    screenOptions={{
-                        headerShown: false,
-                    }}
-                >
-                    <Stack.Screen
-                        name='MoodCheckIn'
-                        component={MoodCheckInScreen}
-                    />
 
-                    <Stack.Screen
-                        name='Calendar'
-                        component={CalendarScreen}
-                    />
+        <NavigationContainer>
+            <Stack.Navigator
+                screenOptions={{
+                    headerShown: false,
+                }}
+            >
+                
 
-                </Stack.Navigator>
+                <Stack.Screen
+                    name='MoodCheckIn'
+                    component={MoodCheckInScreen}
+                />
 
-            </NavigationContainer>
+                <Stack.Screen
+                    name='Calendar'
+                    component={CalendarScreen}
+                />
 
-        
+                <Stack.Screen
+                    name='Resources'
+                    component={ResourcesScreen}
+                />
+
+            </Stack.Navigator>
+
+        </NavigationContainer>
+
+
 
     )
 
