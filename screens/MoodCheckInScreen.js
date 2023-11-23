@@ -27,10 +27,7 @@ const MoodCheckInScreen = ( { navigation } ) => {
                     <Note />
                 </View>
 
-                <View style={styles.button}
-                    
-                >
-
+                <View style={styles.button}>
                     <StyledButton onPress={() => navigation.navigate('Calendar')} />
                 </View>
                 

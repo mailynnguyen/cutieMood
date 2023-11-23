@@ -3,11 +3,11 @@ import { View, Text, StyleSheet } from 'react-native';
 
 
 
-const CalendarScreen = () => {
+const HelpScreen = () => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>Calendar</Text>
+            <Text style={styles.text}>Help</Text>
         </View>
 
     )
@@ -27,4 +27,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default CalendarScreen;
+export default HelpScreen;

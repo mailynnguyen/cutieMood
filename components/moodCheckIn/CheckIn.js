@@ -36,29 +36,25 @@ const CheckIn = () => {
 
 				<TouchableOpacity
 					onPress={() => {
-						setSecondImageClicked(!secondImageClicked),
-						secondImageClicked ? setDisplayText('pretty good') : setDisplayText('')
+						handlePress('pretty good')
 				}}>
 					<Image style={styles.icon} source={ PrettyGoodImage } />
 				</TouchableOpacity>
 
-				<TouchableOpacity onClick={() => {
-					setThirdImageClicked(!thirdImageClicked),
-						thirdImageClicked ? setDisplayText('okay') : setDisplayText('')
+				<TouchableOpacity onPress={() => {
+					handlePress('okay')
 				}}>
 					<Image style={styles.icon} source={OkayImage} />
 				</TouchableOpacity>
 
 				<TouchableOpacity onPress={() => {
-					setFourthImageClicked(!fourthImageClicked),
-					fourthImageClicked ? setDisplayText('pretty bad') : setDisplayText('')
+					handlePress('pretty bad')
 				}}>
 					<Image style={styles.icon} source={PrettyBadImage} />
 				</TouchableOpacity>
 
 				<TouchableOpacity onPress={() => {
-					setFifthImageClicked(!fifthImageClicked),
-					fifthImageClicked ? setDisplayText('really terrible') : setDisplayText('')
+					handlePress('really terrible')
 				}}>
 					<Image style={styles.icon} source={ReallyTerribleImage} />
 				</TouchableOpacity>
@@ -112,7 +108,7 @@ const styles = StyleSheet.create({
 
 	text: {
 		color: '#D8737F',
-		marginTop: 20,
+		marginTop: 16,
 		fontSize: 20,
 		fontFamily: 'Gaegu-Bold'
 	}
