@@ -28,7 +28,9 @@ const MoodCheckInScreen = ( { navigation } ) => {
                 </View>
 
                 <View style={styles.button}>
-                    <StyledButton onPress={() => navigation.navigate('Calendar')} />
+                    <StyledButton
+                        onPress={() => navigation.navigate('Calendar')}
+                    />
                 </View>
                 
             </View>
@@ -67,7 +69,7 @@ const styles = StyleSheet.create({
 
     button: {
         marginTop: 60,
-        marginBottom: 200,
+        marginBottom: 200
     }
 });
 

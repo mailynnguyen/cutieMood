@@ -7,7 +7,30 @@ const CalendarScreen = () => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>Calendar</Text>
+            {/* Month Title */}
+            <Text style={styles.title}>November</Text>
+
+            {/* Row */}
+            <View style={styles.days}>
+                <Text style={styles.day}>Sun</Text>
+                <Text style={styles.day}>Mon</Text>
+                <Text style={styles.day}>Tue</Text>
+                <Text style={styles.day}>Wed</Text>
+                <Text style={styles.day}>Thu</Text>
+                <Text style={styles.day}>Fri</Text>
+                <Text style={styles.day}>Sat</Text>
+            </View>
+
+            <View style={styles.gridRow}>
+                <View style={styles.box}></View>
+                <View style={styles.box}></View>
+                <View style={styles.box}></View>
+                <View style={styles.box}></View>
+                <View style={styles.box}></View>
+                <View style={styles.box}></View>
+                <View style={styles.box}></View>
+            </View>
+            
         </View>
 
     )
