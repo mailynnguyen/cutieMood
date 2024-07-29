@@ -4,11 +4,8 @@ import { db } from "../../../firebase.config";
 import { useState, useEffect } from 'react';
 import { moods } from '../../data/moods';
 import { colors } from '../../data/colors';
-import { useNavigation } from '@react-navigation/native';
 
-const CustomCalendar = ({ done }) => {
-    const navigation = useNavigation(); // Initialize navigation
-
+const CustomCalendar = ({ done, setNote, setMood, setDayPressed, setPressed }) => {
     const [markedDates, setMarkedDates] = useState({});
 
     // handle when a day of calendar is pressed
@@ -20,11 +17,10 @@ const CustomCalendar = ({ done }) => {
         const docSnapshot = await getDoc(docRef);
 
         if (docSnapshot.exists()) {
-            navigation.navigate("getnote", {
-                note: docSnapshot.data().note,
-                mood: docSnapshot.data().mood,
-                dayPressed: docID,
-            });
+            setNote(docSnapshot.data().note);
+            setMood(docSnapshot.data().mood);
+            setDayPressed(docID);
+            setPressed(true); // to signify to display GetNoteScreen
         } else {
             console.log("No such document!")
         }

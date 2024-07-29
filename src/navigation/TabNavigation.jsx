@@ -9,7 +9,8 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import Entypo from '@expo/vector-icons/Entypo';
 import { TouchableOpacity } from 'react-native';
 import PostNoteScreen from '../screens/PostNoteScreen';
-import StackNavigation from './StackNavigation';
+import CalendarScreen from '../screens/CalendarScreen';
+import { useEffect } from 'react';
 
 const Tab = createBottomTabNavigator();
 
@@ -56,7 +57,7 @@ const TabNavigation = () => {
                     }, 
                 })}
             >
-                <Tab.Screen name="calendar" children={() => <StackNavigation done={done} />} />
+                <Tab.Screen name="calendar" children={() => <CalendarScreen done={done} />} />
                 <Tab.Screen name="chat" component={ChatScreen} />
                 <Tab.Screen name="postnote" children={() => <PostNoteScreen done={done} setDone={setDone} />}
                     options={() => ({

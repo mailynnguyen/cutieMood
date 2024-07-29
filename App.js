@@ -1,4 +1,4 @@
-import TabNavigation from "./src/navigation/TabNavigation";
+import StackNavigation from "./src/navigation/StackNavigation";
 import './gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { useFonts } from "expo-font";
@@ -22,7 +22,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <TabNavigation />
+      <StackNavigation />
     </NavigationContainer>
   );
 }
