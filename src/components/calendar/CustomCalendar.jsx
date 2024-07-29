@@ -1,6 +1,6 @@
 import { Calendar, CalendarList } from 'react-native-calendars';
 import { doc, collection, getDocs, getDoc } from "firebase/firestore";
-import { db } from "../../../firebaseConfig";
+import { db } from "../../../firebase.config";
 import { useState, useEffect } from 'react';
 import { moods } from '../../data/moods';
 import { colors } from '../../data/colors';

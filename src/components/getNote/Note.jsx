@@ -1,7 +1,6 @@
 import { View, Text, StyleSheet, TextInput } from "react-native";
 
 const Note = ({ note }) => {
-
     return (
         <View style={styles.container}>
             <View style={styles.notepad}>

@@ -21,7 +21,6 @@ export default function App() {
   }, [loaded, error]);
 
   return (
-    
     <NavigationContainer>
       <TabNavigation />
     </NavigationContainer>

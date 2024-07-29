@@ -1,5 +1,5 @@
 import { doc, setDoc } from "firebase/firestore";
-import { db } from "../../firebaseConfig";
+import { db } from "../../firebase.config";
 import { useState } from "react";
 import { StyleSheet, View, Keyboard, TouchableWithoutFeedback } from "react-native";
 import Greeting from "../components/postNote/Greeting";
