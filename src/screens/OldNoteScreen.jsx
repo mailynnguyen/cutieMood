@@ -6,10 +6,9 @@ import Note from "../components/getNote/Note";
 import CustomButton from "../components/postNote/CustomButton";
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import { moods } from "../data/moods";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-const GetNoteScreen = ({ setEdit, edit }) => {
+const OldNoteScreen = ({ setEdit, edit }) => {
     const navigation = useNavigation();
     const route = useRoute();
     // route parameters from CustomCalendar/CalendarScreen
@@ -17,15 +16,6 @@ const GetNoteScreen = ({ setEdit, edit }) => {
     
     const [noteState, setNoteState] = useState(note);
     const [moodState, setMoodState] = useState(mood);
-
-    // Initial render to ...
-    // const [savedMoodIndex, setSavedMoodIndex] = useState(-1);
-    // useEffect(() => {
-    //     moods.forEach((moodEach, index) => {
-    //         if (moodEach === mood)
-    //             setSavedMoodIndex(index);
-    //     })
-    // }, []);
 
     // EDIT button is pressed
     const handleEditPress = async () => {
@@ -65,7 +55,7 @@ const GetNoteScreen = ({ setEdit, edit }) => {
     )
 }
 
-export default GetNoteScreen;
+export default OldNoteScreen;
 
 const styles = StyleSheet.create({
     container: {

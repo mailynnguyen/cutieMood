@@ -14,8 +14,7 @@ import { useEffect } from 'react';
 
 const Tab = createBottomTabNavigator();
 
-const TabNavigation = ({ edit }) => {
-    const [done, setDone] = useState(false);
+const TabNavigation = ({ edit, done }) => {
 
     return (
             <Tab.Navigator

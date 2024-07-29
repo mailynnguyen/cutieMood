@@ -19,14 +19,18 @@ const CustomCalendar = ({ done, edit }) => {
         const docSnapshot = await getDoc(docRef);
 
         if (docSnapshot.exists()) {
-            navigation.navigate("getnote", {
+            navigation.navigate("oldnote", {
                 note: docSnapshot.data().note,
                 mood: docSnapshot.data().mood, 
                 dayPressed: docID,
                 pressed: pressed,
             });
         } else {
-            console.log("No such document!")
+            navigation.navigate("newnote", {
+                dayPressed: docID,
+                
+            });
+            // console.log("No such document!")
         }
     }
 

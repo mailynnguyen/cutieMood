@@ -13,7 +13,7 @@ const Moods = ({ setMood }) => {
     const handlePress = (index) => {
         setSelectedMoodIndex(index);
         setMoodText(moods[index]);
-        setMood(moods[index]); // for something, but i don't remember what
+        setMood(moods[index]); // changes mood state to add to doc
         setFontColor(colors[index]);
     }
 
