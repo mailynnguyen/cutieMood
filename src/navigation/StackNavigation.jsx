@@ -9,6 +9,8 @@ const Stack = createStackNavigator();
 const StackNavigation = () => {
     const [edit, setEdit] = useState(false);
     const [done, setDone] = useState(false);
+    const [del, setDel] = useState(false);
+
 
     return (
         <Stack.Navigator
@@ -17,8 +19,8 @@ const StackNavigation = () => {
                 headerShown: false,
             }}
         >
-            <Stack.Screen name="tabnavigation" children={() => <TabNavigation edit={edit} done={done} />} />
-            <Stack.Screen name="oldnote" children={() => <OldNoteScreen edit={edit} setEdit={setEdit}/>} />
+            <Stack.Screen name="tabnavigation" children={() => <TabNavigation edit={edit} setDone={setDone} done={done} del={del} />} />
+            <Stack.Screen name="oldnote" children={() => <OldNoteScreen edit={edit} setEdit={setEdit} del={del} setDel={setDel} />} />
             <Stack.Screen name="newnote" children={() => <NewNoteScreen done={done} setDone={setDone} />} />
         </Stack.Navigator>
     )

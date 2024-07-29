@@ -6,7 +6,7 @@ import { moods } from '../../data/moods';
 import { colors } from '../../data/colors';
 import { useNavigation } from '@react-navigation/native';
 
-const CustomCalendar = ({ done, edit }) => {
+const CustomCalendar = ({ done, edit, del }) => {
     const navigation = useNavigation();
 
     const [markedDates, setMarkedDates] = useState({});
@@ -48,10 +48,10 @@ const CustomCalendar = ({ done, edit }) => {
                     }
                 })
             });
-            setMarkedDates({...markedDates, ...customDates});
+            setMarkedDates({...customDates});
         }
         fetchNotes();
-    }, [done, edit]);
+    }, [done, edit, del]);
 
     return (
         <CalendarList 
