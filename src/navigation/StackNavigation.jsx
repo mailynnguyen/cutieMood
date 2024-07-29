@@ -1,11 +1,13 @@
 import { createStackNavigator } from '@react-navigation/stack';
-import CalendarScreen from '../screens/CalendarScreen';
 import GetNoteScreen from '../screens/GetNoteScreen';
 import TabNavigation from './TabNavigation';
+import { useState } from 'react';
 
 const Stack = createStackNavigator();
 
 const StackNavigation = () => {
+    const [edit, setEdit] = useState(false);
+
     return (
         <Stack.Navigator
             initialRouteName="tabnavigation"
@@ -13,8 +15,8 @@ const StackNavigation = () => {
                 headerShown: false,
             }}
         >
-            <Stack.Screen name="tabnavigation" component={TabNavigation} />
-            <Stack.Screen name="getnote" component={GetNoteScreen} />
+            <Stack.Screen name="tabnavigation" children={() => <TabNavigation edit={edit} />} />
+            <Stack.Screen name="getnote" children={() => <GetNoteScreen edit={edit} setEdit={setEdit}/>} />
         </Stack.Navigator>
     )
 }

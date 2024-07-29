@@ -4,23 +4,27 @@ import { db } from "../../../firebase.config";
 import { useState, useEffect } from 'react';
 import { moods } from '../../data/moods';
 import { colors } from '../../data/colors';
+import { useNavigation } from '@react-navigation/native';
 
-const CustomCalendar = ({ done, setNote, setMood, setDayPressed, setPressed }) => {
+const CustomCalendar = ({ done, edit }) => {
+    const navigation = useNavigation();
+
     const [markedDates, setMarkedDates] = useState({});
+    const [pressed, setPressed] = useState(false);
 
-    // handle when a day of calendar is pressed
     const handleDayPressed = async (day) => {
-        
-
+        setPressed(!pressed);
         const docID = day.dateString;
         const docRef = doc(db, "notes", docID)
         const docSnapshot = await getDoc(docRef);
 
         if (docSnapshot.exists()) {
-            setNote(docSnapshot.data().note);
-            setMood(docSnapshot.data().mood);
-            setDayPressed(docID);
-            setPressed(true); // to signify to display GetNoteScreen
+            navigation.navigate("getnote", {
+                note: docSnapshot.data().note,
+                mood: docSnapshot.data().mood, 
+                dayPressed: docID,
+                pressed: pressed,
+            });
         } else {
             console.log("No such document!")
         }
@@ -43,7 +47,7 @@ const CustomCalendar = ({ done, setNote, setMood, setDayPressed, setPressed }) =
             setMarkedDates({...markedDates, ...customDates});
         }
         fetchNotes();
-    }, [done]);
+    }, [done, edit]);
 
     return (
         <CalendarList 

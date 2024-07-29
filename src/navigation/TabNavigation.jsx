@@ -14,7 +14,7 @@ import { useEffect } from 'react';
 
 const Tab = createBottomTabNavigator();
 
-const TabNavigation = () => {
+const TabNavigation = ({ edit }) => {
     const [done, setDone] = useState(false);
 
     return (
@@ -57,7 +57,7 @@ const TabNavigation = () => {
                     }, 
                 })}
             >
-                <Tab.Screen name="calendar" children={() => <CalendarScreen done={done} />} />
+                <Tab.Screen name="calendar" children={() => <CalendarScreen done={done} edit={edit} />} />
                 <Tab.Screen name="chat" component={ChatScreen} />
                 <Tab.Screen name="postnote" children={() => <PostNoteScreen done={done} setDone={setDone} />}
                     options={() => ({

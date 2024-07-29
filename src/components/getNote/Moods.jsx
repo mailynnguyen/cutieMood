@@ -5,7 +5,7 @@ import { moodImagesGray, moodImagesOrange } from "../../data/note/moodImages";
 import { moods } from "../../data/moods";
 import { colors } from "../../data/colors";
 
-const Moods = ({ savedMoodIndex }) => {
+const Moods = ({ pressed, setMoodState, moodState }) => {
     const [selectedMoodIndex, setSelectedMoodIndex] = useState(-1);
     const [fontColor, setFontColor] = useState("");
     const [moodText, setMoodText] = useState("");
@@ -13,15 +13,19 @@ const Moods = ({ savedMoodIndex }) => {
     const handlePress = (index) => {
         setSelectedMoodIndex(index);
         setMoodText(moods[index]);
-        setMood(moods[index]); // for something, but i don't remember what
         setFontColor(colors[index]);
+        setMoodState(moods[index])
     }
 
     useEffect(() => {
-        setSelectedMoodIndex(savedMoodIndex);
-        setMoodText(moods[savedMoodIndex]);
-        setFontColor(colors[savedMoodIndex])
-    });
+        moods.forEach((moodEach, index) => {
+            if (moodEach === moodState) {
+                setSelectedMoodIndex(index);
+                setFontColor(colors[index]);  
+                setMoodText(moods[index]);
+            }
+        }) 
+    }, [pressed]);
 
     return (
         <View style={styles.container}>

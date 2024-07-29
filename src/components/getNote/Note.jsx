@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, TextInput } from "react-native";
 
-const Note = ({ note }) => {
+const Note = ({ noteState, setNoteState }) => {
     return (
         <View style={styles.container}>
             <View style={styles.notepad}>
@@ -12,7 +12,8 @@ const Note = ({ note }) => {
                     scrollEnabled={false}
                     allowFontScaling
                     style={styles.text}
-                    value={note}
+                    onChangeText={(text) => setNoteState(text)}
+                    value={noteState}
                 >
                 </TextInput>
             </View> 
