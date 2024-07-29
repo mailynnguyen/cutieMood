@@ -8,6 +8,7 @@ import Note from "../components/postNote/Note";
 import CustomButton from "../components/postNote/CustomButton";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { useNavigation } from '@react-navigation/native';
+import Toast from 'react-native-toast-message';
 
 const PostNoteScreen = ({ setDone, done }) => {
     const navigation = useNavigation();
@@ -17,21 +18,28 @@ const PostNoteScreen = ({ setDone, done }) => {
 
     const donePressed = async () => {
         try {
-            // Today's date
-            const year = new Date().getFullYear().toString();
-            const month = (new Date().getMonth() + 1).toString();
-            const monthStr = month < 10 ? "0" + month : month;
-            const date = new Date().getDate().toString();
-            const today = year + "-" + monthStr + "-" + date;
-            // Document reference
-            const docRef = doc(db, "notes", today);
-            // Add a new doc with a generated id
-            await setDoc(docRef, {
-                note: note,
-                mood: mood,
-            });
-            setDone(!done); // set done and send to CustomCalendar to fetch notes
-            navigation.navigate("calendar");
+            if (mood === "") {
+                Toast.show({ 
+                    type: 'moodToast',
+                    text1: "please enter a mood",
+                });
+            } else {
+                 // Today's date
+                const year = new Date().getFullYear().toString();
+                const month = (new Date().getMonth() + 1).toString();
+                const monthStr = month < 10 ? "0" + month : month;
+                const date = new Date().getDate().toString();
+                const today = year + "-" + monthStr + "-" + date;
+                // Document reference
+                const docRef = doc(db, "notes", today);
+                // Add a new doc with a generated id
+                await setDoc(docRef, {
+                    note: note,
+                    mood: mood,
+                });
+                setDone(!done); // set done and send to CustomCalendar to fetch notes
+                navigation.navigate("calendar");
+            }
         } catch (error) {
             console.error("Error adding document: ", error);
         } 

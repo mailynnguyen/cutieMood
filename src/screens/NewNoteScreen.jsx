@@ -7,6 +7,7 @@ import CustomButton from "../components/postNote/CustomButton";
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { useState } from "react";
+import Toast from 'react-native-toast-message';
 
 const NewNoteScreen = ({ setDone, done }) => {
     const navigation = useNavigation();
@@ -19,14 +20,21 @@ const NewNoteScreen = ({ setDone, done }) => {
 
     const handlePress = async () => {
         try {
-            const docRef = doc(db, "notes", dayPressed);
-            // save doc
-            await setDoc(docRef, {
-                note: note,
-                mood: mood,
-            });
-            setDone(!done);
-            navigation.goBack();
+            if (mood === "") {
+                Toast.show({ 
+                    type: 'moodToast',
+                    text1: "please enter a mood",
+                });
+            } else {
+                const docRef = doc(db, "notes", dayPressed);
+                // save doc
+                await setDoc(docRef, {
+                    note: note,
+                    mood: mood,
+                });
+                setDone(!done);
+                navigation.goBack();
+            }
         } catch (error) {
             console.log("Error adding document: ", error);
         }
